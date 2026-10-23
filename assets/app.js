@@ -1,0 +1,6 @@
+document.querySelectorAll('.burger').forEach(b=>b.onclick=()=>document.querySelector('.mnav').classList.toggle('open'));
+document.querySelectorAll('form.proto-form').forEach(f=>f.onsubmit=e=>{e.preventDefault();const m=f.querySelector('.msg');m.style.display='block';m.textContent='Это прототип: заявка никуда не отправлена. На WordPress форма будет подключена к почте/CRM.'});
+document.querySelectorAll('[data-req]').forEach(b=>b.addEventListener('click',()=>{const s=document.querySelector('#product');if(s){s.value=b.dataset.req}}));
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab,.pane').forEach(x=>x.classList.remove('on'));t.classList.add('on');document.getElementById(t.dataset.p).classList.add('on')});
+const st={g:'all',a:'all'};function ap(){let n=0;document.querySelectorAll('.pc').forEach(c=>{const ok=(st.g=='all'||c.dataset.g==st.g)&&(st.a=='all'||(c.dataset.a||'').includes(st.a));c.style.display=ok?'':'none';if(ok)n++});const o=document.getElementById('cnt');if(o)o.textContent=n?('Показано: '+n):'Нет препаратов с подтверждённым атрибутом — данные возьмём из атрибута «Вид животного» на сайте'}
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{document.querySelectorAll('.chip[data-k='+c.dataset.k+']').forEach(x=>x.classList.remove('on'));c.classList.add('on');st[c.dataset.k]=c.dataset.v;ap()});
